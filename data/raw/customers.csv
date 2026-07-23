@@ -1,0 +1,21 @@
+﻿customer_id,name,email,cpf,phone,city,state,registration_date,updated_at
+C001,Ana Souza,ana.souza@example.com,12345678909,(11) 99999-1111,São Paulo,SP,2025-01-10 00:00:00,2025-02-20T00:00:00
+C002,Bruno Lima,BRUNO.LIMA@EXAMPLE.COM,987.654.321-00,21988882222,RIO DE JANEIRO,RJ,2025/01/19,2025-03-02
+ C003 ,Carla Mendes,carla.mendes@example.com,11122233344,31977773333,Belo Horizonte,mg,2025/01/28,2025-03-12 00:00:00
+C004,DIEGO OLIVEIRA,diego.oliveira@example.com,222.333.444-55,+55 41 96666-4444,Curitiba,PR,2025-02-06,03/22/2025
+C005,  Erica Santos  ,erica.santos@example.com,33344455566,(51) 95555-5555,Porto Alegre,RS,2025-02-15,2025-04-01
+C006,fabio costa,fabio.costa@example.com,4445556667,71944446666,SALVADOR,BA,02/24/2025 00:00,2025-04-11T00:00:00
+C007,Gabriela Rocha, gabriela.rocha@example.com ,55566677788,81933337777, Recife ,PE,2025/03/05,2025-04-21 00:00:00
+C008,Henrique Moraes,HENRIQUE.MORAES@EXAMPLE.COM,666.777.888-99,85922228888,fortaleza,CE,03/14/2025,2025/05/01
+ C009 ,Isabela Almeida,isabela.almeida@example.com,77788899900,(61) 91111-9999,Brasília,DF,03/23/2025 00:00,2025-05-11T00:00:00
+C010,Joao Davila,joao.davila@example,888.999.000-11,+55 62 90000-1111,Goiânia,GO,01/04/2025,05/21/2025
+C011,  Larissa Nunes  ,larissa.nunes@example.com,99900011122,48988882222,Florianópolis,sc,10/04/2025,2025-05-31 00:00:00
+C012,MARCELO BARBOSA,marcelo.barbosa@example.com,101.202.303-44,27977773333,VITÓRIA,ES,2025-04-19 00:00:00,10/06/2025
+C013,Natalia Ribeiro, natalia.ribeiro@example.com ,21230340455,(92) 96666-4444,Manaus,AM,28/04/2025,06/20/2025 00:00
+C014,otavio cardoso,otavio.cardoso@example.com,323.404.505-66,91955555555, Belém ,PA,05/07/2025,2025-06-30
+C015,Patricia Freitas,PATRICIA.FREITAS@EXAMPLE.COM,43450560677,19944446666,campinas,SP,16/05/2025,2025-07-10T00:00:00
+ C016 ,Rafael Pereira,rafael.pereira@example.com,545.606.707-88,11933337777,São Paulo,SP,05/25/2025,20/07/2025
+C017,Sabrina Gomes,sabrina.gomes@,65670780899,(21) 92222-8888,Rio de Janeiro,RJ,2025/06/03,2025-07-30T00:00:00
+C018,  Thiago Martins  ,thiago.martins@example.com,767.808.909-00,+55 31 91111-9999,Belo Horizonte,MG,06/12/2025 00:00,2025/08/09
+C019,VANESSA FERNANDES,vanessa.fernandes@example.com,87890901011,41900001111,Curitiba,pr,06/21/2025 00:00,2025-08-19T00:00:00
+C020,Wagner Teixeira,wagner.teixeira@example.com,989010111229,51899990000,Porto Alegre,RS,2025/06/30,2025-08-29 00:00:00

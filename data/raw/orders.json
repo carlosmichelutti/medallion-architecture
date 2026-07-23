@@ -1,0 +1,952 @@
+[
+  {
+    "order_id": "O0001",
+    "customer_id": "C001",
+    "order_date": "2026-03-02",
+    "status": "PAID",
+    "channel": "WEB",
+    "shipping_fee": "19,90",
+    "coupon": "WELCOME5",
+    "total_amount": "$14,753.52",
+    "payment": {
+      "method": "CREDIT_CARD",
+      "installments": 6
+    },
+    "shipping_address": {
+      "city": "São Paulo",
+      "state": "SP"
+    },
+    "updated_at": "2026-03-02 12:07:00"
+  },
+  {
+    "order_id": "O0002",
+    "customer_id": "C002",
+    "order_date": "2026-03-03 11:14:00",
+    "status": "processing",
+    "channel": "mobile_app",
+    "shipping_fee": "25.00",
+    "coupon": "FREESHIP",
+    "total_amount": "1553.10",
+    "payment": {
+      "method": "pix",
+      "installments": 6
+    },
+    "shipping_address": {
+      "city": "Rio de Janeiro",
+      "state": "RJ"
+    },
+    "updated_at": "2026-03-03"
+  },
+  {
+    "order_id": "O0003",
+    "customer_id": "C003",
+    "order_date": "2026-03-04",
+    "status": "PROCESSING",
+    "channel": "Mobile App",
+    "shipping_fee": "19.90",
+    "coupon": "WELCOME5",
+    "total_amount": "$1,044.51",
+    "payment": {
+      "method": "PIX",
+      "installments": 1
+    },
+    "shipping_address": {
+      "city": "Belo Horizonte",
+      "state": "MG"
+    },
+    "updated_at": "2026-03-04 14:21:00"
+  },
+  {
+    "order_id": "O0004",
+    "customer_id": "C004",
+    "order_date": "2026/03/05",
+    "status": "shipped",
+    "channel": "marketplace",
+    "shipping_fee": "$25.00",
+    "coupon": "",
+    "total_amount": "2813,00",
+    "payment": {
+      "method": "bank_slip",
+      "installments": 2
+    },
+    "shipping_address": {
+      "city": "Curitiba",
+      "state": "PR"
+    },
+    "updated_at": "2026-03-05 15:28:00"
+  },
+  {
+    "order_id": " O0005 ",
+    "customer_id": "C005",
+    "order_date": "2026-03-06 14:35:00",
+    "status": "SHIPPED",
+    "channel": "MARKETPLACE",
+    "shipping_fee": "19.90",
+    "coupon": "WELCOME5",
+    "total_amount": "$564.52",
+    "payment": {
+      "method": "BANK_SLIP",
+      "installments": 3
+    },
+    "shipping_address": {
+      "city": "Porto Alegre",
+      "state": "RS"
+    },
+    "updated_at": "03/06/2026 16:35"
+  },
+  {
+    "order_id": "O0006",
+    "customer_id": "C006",
+    "order_date": "2026-03-07 15:42:00",
+    "status": " delivered ",
+    "channel": "web",
+    "shipping_fee": 0.0,
+    "coupon": "FREESHIP",
+    "total_amount": "2053,72",
+    "payment": {
+      "method": "credit_card",
+      "installments": 1
+    },
+    "shipping_address": {
+      "city": "Salvador",
+      "state": "BA"
+    },
+    "updated_at": "2026-03-07"
+  },
+  {
+    "order_id": "O0007",
+    "customer_id": "C007",
+    "order_date": "2026-03-08 16:49:00",
+    "status": "DELIVERED",
+    "channel": "WEB",
+    "shipping_fee": "25.00",
+    "coupon": "FREESHIP",
+    "total_amount": "5021,72",
+    "payment": {
+      "method": "CREDIT_CARD",
+      "installments": 1
+    },
+    "shipping_address": {
+      "city": "Recife",
+      "state": "PE"
+    },
+    "updated_at": "2026-03-08T18:49:00"
+  },
+  {
+    "order_id": "O0008",
+    "customer_id": " c008 ",
+    "order_date": "03/09/2026",
+    "status": "cancelled",
+    "channel": "mobile_app",
+    "shipping_fee": "19,90",
+    "coupon": "SPRING10",
+    "total_amount": "714,43",
+    "payment": {
+      "method": "pix",
+      "installments": 4
+    },
+    "shipping_address": {
+      "city": "Fortaleza",
+      "state": "CE"
+    },
+    "updated_at": "2026-03-09"
+  },
+  {
+    "order_id": "O0009",
+    "customer_id": "C009",
+    "order_date": "2026-03-10T10:03:00",
+    "status": "paid",
+    "channel": " mobile app ",
+    "shipping_fee": "25,00",
+    "coupon": "",
+    "total_amount": "2416.95",
+    "payment": {
+      "method": "PIX",
+      "installments": 1
+    },
+    "shipping_address": {
+      "city": "Brasília",
+      "state": "DF"
+    },
+    "updated_at": "2026-03-10"
+  },
+  {
+    "order_id": "O0010",
+    "customer_id": "C010",
+    "order_date": "2026/03/11",
+    "status": "PAID",
+    "channel": "marketplace",
+    "shipping_fee": "$14.90",
+    "coupon": " welcome5 ",
+    "total_amount": "$1,349.82",
+    "payment": {
+      "method": "bank_slip",
+      "installments": 2
+    },
+    "shipping_address": {
+      "city": "Goiânia",
+      "state": "GO"
+    },
+    "updated_at": "11/03/2026"
+  },
+  {
+    "order_id": "O0011",
+    "customer_id": "C011",
+    "order_date": "03/12/2026",
+    "status": "processing",
+    "channel": "MARKETPLACE",
+    "shipping_fee": "14.90",
+    "coupon": "WELCOME5",
+    "total_amount": "4,215.73",
+    "payment": {
+      "method": "BANK_SLIP",
+      "installments": 6
+    },
+    "shipping_address": {
+      "city": "FLORIANÓPOLIS",
+      "state": "SC"
+    },
+    "updated_at": "2026-03-12 14:17:00"
+  },
+  {
+    "order_id": "O0012",
+    "customer_id": "C012",
+    "order_date": "13/03/2026",
+    "status": "PROCESSING",
+    "channel": "web",
+    "shipping_fee": "R$ 14,90",
+    "coupon": null,
+    "total_amount": "2,591.70",
+    "payment": {
+      "method": "credit_card",
+      "installments": 2
+    },
+    "shipping_address": {
+      "city": "Vitória",
+      "state": "ES"
+    },
+    "updated_at": "2026-03-13 15:24:00"
+  },
+  {
+    "order_id": "O0013",
+    "customer_id": "C013",
+    "order_date": "2026-03-14",
+    "status": "shipped",
+    "channel": "WEB",
+    "shipping_fee": "$25.00",
+    "coupon": "FREESHIP",
+    "total_amount": "R$ 554,80",
+    "payment": {
+      "method": "CREDIT_CARD",
+      "installments": 3
+    },
+    "shipping_address": {
+      "city": "Manaus",
+      "state": "am"
+    },
+    "updated_at": "03/14/2026"
+  },
+  {
+    "order_id": "O0014",
+    "customer_id": "C014",
+    "order_date": "2026-03-15 15:38:00",
+    "status": "SHIPPED",
+    "channel": "mobile_app",
+    "shipping_fee": "14.90",
+    "coupon": null,
+    "total_amount": "R$ 2.922,80",
+    "payment": {
+      "method": "pix",
+      "installments": 1
+    },
+    "shipping_address": {
+      "city": "Belém",
+      "state": "PA"
+    },
+    "updated_at": "03/15/2026 17:38"
+  },
+  {
+    "order_id": "O0015",
+    "customer_id": "C015",
+    "order_date": "2026-03-16",
+    "status": "delivered",
+    "channel": "Mobile App",
+    "shipping_fee": 25.0,
+    "coupon": "FREESHIP",
+    "total_amount": 914.73,
+    "payment": {
+      "method": "PIX",
+      "installments": 6
+    },
+    "shipping_address": {
+      "city": "Campinas",
+      "state": "SP"
+    },
+    "updated_at": "2026-03-16 18:45:00"
+  },
+  {
+    "order_id": "O0016",
+    "customer_id": "C016",
+    "order_date": "2026-03-17T09:52:00",
+    "status": "DELIVERED",
+    "channel": "marketplace",
+    "shipping_fee": "0.00",
+    "coupon": null,
+    "total_amount": "918.95",
+    "payment": {
+      "method": "bank_slip",
+      "installments": 2
+    },
+    "shipping_address": {
+      "city": "São Paulo",
+      "state": "SP"
+    },
+    "updated_at": "17/03/2026"
+  },
+  {
+    "order_id": " O0017 ",
+    "customer_id": "C017",
+    "order_date": "18/03/2026",
+    "status": "cancelled",
+    "channel": "MARKETPLACE",
+    "shipping_fee": "$14.90",
+    "coupon": "WELCOME5",
+    "total_amount": "$14,894.50",
+    "payment": {
+      "method": "BANK_SLIP",
+      "installments": 6
+    },
+    "shipping_address": {
+      "city": "Rio de Janeiro",
+      "state": "RJ"
+    },
+    "updated_at": "2026-03-18T12:59:00"
+  },
+  {
+    "order_id": "O0018",
+    "customer_id": "C018",
+    "order_date": "19/03/2026",
+    "status": "paid",
+    "channel": "web",
+    "shipping_fee": "R$ 25,00",
+    "coupon": "",
+    "total_amount": "969.43",
+    "payment": {
+      "method": "credit_card",
+      "installments": 2
+    },
+    "shipping_address": {
+      "city": "Belo Horizonte",
+      "state": "MG"
+    },
+    "updated_at": "03/19/2026"
+  },
+  {
+    "order_id": "O0019",
+    "customer_id": "C019",
+    "order_date": "2026-03-20",
+    "status": "PAID",
+    "channel": "WEB",
+    "shipping_fee": "$0.00",
+    "coupon": "SPRING10",
+    "total_amount": "2549.40",
+    "payment": {
+      "method": "CREDIT_CARD",
+      "installments": 6
+    },
+    "shipping_address": {
+      "city": "Curitiba",
+      "state": "PR"
+    },
+    "updated_at": "2026/03/20"
+  },
+  {
+    "order_id": "O0020",
+    "customer_id": "C020",
+    "order_date": "2026-03-21 13:20:00",
+    "status": "processing",
+    "channel": "mobile_app",
+    "shipping_fee": "25.00",
+    "coupon": "SPRING10",
+    "total_amount": "$1,535.83",
+    "payment": {
+      "method": "pix",
+      "installments": 6
+    },
+    "shipping_address": {
+      "city": "Porto Alegre",
+      "state": "RS"
+    },
+    "updated_at": "03/21/2026 15:20"
+  },
+  {
+    "order_id": "O0021",
+    "customer_id": "C001",
+    "order_date": "2026-03-22T14:27:00",
+    "status": "PROCESSING",
+    "channel": "Mobile App",
+    "shipping_fee": "R$ 0,00",
+    "coupon": "",
+    "total_amount": "R$ 13.337,46",
+    "payment": {
+      "method": "PIX",
+      "installments": 6
+    },
+    "shipping_address": {
+      "city": "São Paulo",
+      "state": "SP"
+    },
+    "updated_at": "03/22/2026"
+  },
+  {
+    "order_id": "O0022",
+    "customer_id": "C002",
+    "order_date": "03/23/2026 15:34",
+    "status": " shipped ",
+    "channel": "marketplace",
+    "shipping_fee": "R$ 25,00",
+    "coupon": "",
+    "total_amount": "1,459.72",
+    "payment": {
+      "method": "bank_slip",
+      "installments": 3
+    },
+    "shipping_address": {
+      "city": "Rio de Janeiro",
+      "state": "RJ"
+    },
+    "updated_at": "03/23/2026 17:34"
+  },
+  {
+    "order_id": "O0023",
+    "customer_id": "C003",
+    "order_date": "2026-03-24T16:41:00",
+    "status": "SHIPPED",
+    "channel": "MARKETPLACE",
+    "shipping_fee": "R$ 14,90",
+    "coupon": "WELCOME5",
+    "total_amount": "$670.63",
+    "payment": {
+      "method": "BANK_SLIP",
+      "installments": 1
+    },
+    "shipping_address": {
+      "city": "Belo Horizonte",
+      "state": "MG"
+    },
+    "updated_at": "03/24/2026 18:41"
+  },
+  {
+    "order_id": "O0024",
+    "customer_id": " c004 ",
+    "order_date": "2026/03/25",
+    "status": "delivered",
+    "channel": "web",
+    "shipping_fee": "19.90",
+    "coupon": null,
+    "total_amount": "$1,348.90",
+    "payment": {
+      "method": "credit_card",
+      "installments": 3
+    },
+    "shipping_address": {
+      "city": "Curitiba",
+      "state": "PR"
+    },
+    "updated_at": "03/25/2026"
+  },
+  {
+    "order_id": "O0025",
+    "customer_id": "C005",
+    "order_date": "26/03/2026",
+    "status": "DELIVERED",
+    "channel": "WEB",
+    "shipping_fee": "$25.00",
+    "coupon": null,
+    "total_amount": "1088,53",
+    "payment": {
+      "method": "CREDIT_CARD",
+      "installments": 6
+    },
+    "shipping_address": {
+      "city": "Porto Alegre",
+      "state": "RS"
+    },
+    "updated_at": "2026-03-26 12:55:00"
+  },
+  {
+    "order_id": "O0026",
+    "customer_id": "C006",
+    "order_date": "03/27/2026 11:02",
+    "status": "cancelled",
+    "channel": "mobile_app",
+    "shipping_fee": "14.90",
+    "coupon": "SPRING10",
+    "total_amount": "$1,756.81",
+    "payment": {
+      "method": "pix",
+      "installments": 3
+    },
+    "shipping_address": {
+      "city": "Salvador",
+      "state": "BA"
+    },
+    "updated_at": "03/27/2026 13:02"
+  },
+  {
+    "order_id": "O0027",
+    "customer_id": "C007",
+    "order_date": "2026-03-28T12:09:00",
+    "status": "paid",
+    "channel": " mobile app ",
+    "shipping_fee": "$0.00",
+    "coupon": "FREESHIP",
+    "total_amount": "10312,52",
+    "payment": {
+      "method": "PIX",
+      "installments": 4
+    },
+    "shipping_address": {
+      "city": "Recife",
+      "state": "PE"
+    },
+    "updated_at": "03/28/2026"
+  },
+  {
+    "order_id": "O0028",
+    "customer_id": "C008",
+    "order_date": "2026/03/29",
+    "status": "PAID",
+    "channel": "marketplace",
+    "shipping_fee": 14.9,
+    "coupon": " welcome5 ",
+    "total_amount": "534.50",
+    "payment": {
+      "method": "bank_slip",
+      "installments": 6
+    },
+    "shipping_address": {
+      "city": "Fortaleza",
+      "state": "CE"
+    },
+    "updated_at": "03/29/2026"
+  },
+  {
+    "order_id": "O0029",
+    "customer_id": "C009",
+    "order_date": "30/03/2026",
+    "status": "processing",
+    "channel": "MARKETPLACE",
+    "shipping_fee": "R$ 14,90",
+    "coupon": "",
+    "total_amount": "1332.07",
+    "payment": {
+      "method": "BANK_SLIP",
+      "installments": 2
+    },
+    "shipping_address": {
+      "city": "Brasília",
+      "state": "DF"
+    },
+    "updated_at": "2026-03-30 16:23:00"
+  },
+  {
+    "order_id": "O0030",
+    "customer_id": "C010",
+    "order_date": "2026/03/31",
+    "status": "PROCESSING",
+    "channel": "web",
+    "shipping_fee": 14.9,
+    "coupon": "SPRING10",
+    "total_amount": "1193,95",
+    "payment": {
+      "method": "credit_card",
+      "installments": 2
+    },
+    "shipping_address": {
+      "city": "Goiânia",
+      "state": "GO"
+    },
+    "updated_at": "31/03/2026"
+  },
+  {
+    "order_id": "O0031",
+    "customer_id": "C011",
+    "order_date": "04/01/2026",
+    "status": "shipped",
+    "channel": "WEB",
+    "shipping_fee": "0.00",
+    "coupon": "",
+    "total_amount": 4244.72,
+    "payment": {
+      "method": "CREDIT_CARD",
+      "installments": 2
+    },
+    "shipping_address": {
+      "city": "Florianópolis",
+      "state": "SC"
+    },
+    "updated_at": "2026-04-01 18:37:00"
+  },
+  {
+    "order_id": "O0032",
+    "customer_id": "C012",
+    "order_date": "04/02/2026",
+    "status": "SHIPPED",
+    "channel": "mobile_app",
+    "shipping_fee": 14.9,
+    "coupon": "FREESHIP",
+    "total_amount": "1774,72",
+    "payment": {
+      "method": "pix",
+      "installments": 6
+    },
+    "shipping_address": {
+      "city": "Vitória",
+      "state": "ES"
+    },
+    "updated_at": "2026-04-02T11:44:00"
+  },
+  {
+    "order_id": " O0033 ",
+    "customer_id": "C013",
+    "order_date": "04/03/2026 10:51",
+    "status": "delivered",
+    "channel": "Mobile App",
+    "shipping_fee": "R$ 0,00",
+    "coupon": "FREESHIP",
+    "total_amount": "467,83",
+    "payment": {
+      "method": "PIX",
+      "installments": 1
+    },
+    "shipping_address": {
+      "city": "Manaus",
+      "state": "AM"
+    },
+    "updated_at": "2026-04-03 12:51:00"
+  },
+  {
+    "order_id": "O0034",
+    "customer_id": "C014",
+    "order_date": "2026-04-04",
+    "status": "DELIVERED",
+    "channel": "marketplace",
+    "shipping_fee": "$19.90",
+    "coupon": null,
+    "total_amount": "$4,116.70",
+    "payment": {
+      "method": "bank_slip",
+      "installments": 6
+    },
+    "shipping_address": {
+      "city": "Belém",
+      "state": "PA"
+    },
+    "updated_at": "2026/04/04"
+  },
+  {
+    "order_id": "O0035",
+    "customer_id": "C015",
+    "order_date": "2026/04/05",
+    "status": "cancelled",
+    "channel": "MARKETPLACE",
+    "shipping_fee": "25.00",
+    "coupon": "FREESHIP",
+    "total_amount": "562.81",
+    "payment": {
+      "method": "BANK_SLIP",
+      "installments": 1
+    },
+    "shipping_address": {
+      "city": "Campinas",
+      "state": "SP"
+    },
+    "updated_at": "04/05/2026"
+  },
+  {
+    "order_id": "O0036",
+    "customer_id": "C016",
+    "order_date": "2026-04-06T13:12:00",
+    "status": "paid",
+    "channel": "web",
+    "shipping_fee": "19.90",
+    "coupon": "WELCOME5",
+    "total_amount": 2552.82,
+    "payment": {
+      "method": "credit_card",
+      "installments": 3
+    },
+    "shipping_address": {
+      "city": "SÃO PAULO",
+      "state": "SP"
+    },
+    "updated_at": "04/06/2026 15:12"
+  },
+  {
+    "order_id": "O0037",
+    "customer_id": "C017",
+    "order_date": "04/07/2026",
+    "status": "PAID",
+    "channel": "WEB",
+    "shipping_fee": "R$ 25,00",
+    "coupon": "SPRING10",
+    "total_amount": "4,794.71",
+    "payment": {
+      "method": "CREDIT_CARD",
+      "installments": 6
+    },
+    "shipping_address": {
+      "city": "Rio de Janeiro",
+      "state": "RJ"
+    },
+    "updated_at": "2026/04/07"
+  },
+  {
+    "order_id": "O0038",
+    "customer_id": "C018",
+    "order_date": "2026-04-08T15:26:00",
+    "status": "processing",
+    "channel": "mobile_app",
+    "shipping_fee": 19.9,
+    "coupon": "",
+    "total_amount": "500.04",
+    "payment": {
+      "method": "pix",
+      "installments": 1
+    },
+    "shipping_address": {
+      "city": "Belo Horizonte",
+      "state": "MG"
+    },
+    "updated_at": "04/08/2026"
+  },
+  {
+    "order_id": "O0039",
+    "customer_id": "C019",
+    "order_date": "2026-04-09T16:33:00",
+    "status": " processing ",
+    "channel": "Mobile App",
+    "shipping_fee": "$25.00",
+    "coupon": null,
+    "total_amount": "R$ 2.521,92",
+    "payment": {
+      "method": "PIX",
+      "installments": 2
+    },
+    "shipping_address": {
+      "city": "Curitiba",
+      "state": "PR"
+    },
+    "updated_at": "2026-04-09 18:33:00"
+  },
+  {
+    "order_id": "O0040",
+    "customer_id": "C020",
+    "order_date": "2026-04-10T09:40:00",
+    "status": "shipped",
+    "channel": "marketplace",
+    "shipping_fee": 14.9,
+    "coupon": "WELCOME5",
+    "total_amount": "R$ 1.253,90",
+    "payment": {
+      "method": "bank_slip",
+      "installments": 3
+    },
+    "shipping_address": {
+      "city": "Porto Alegre",
+      "state": "RS"
+    },
+    "updated_at": "10/04/2026"
+  },
+  {
+    "order_id": "O0041",
+    "customer_id": " c001 ",
+    "order_date": "2026-04-11 10:47:00",
+    "status": "SHIPPED",
+    "channel": "MARKETPLACE",
+    "shipping_fee": "19,90",
+    "coupon": "WELCOME5",
+    "total_amount": "R$ 4.991,62",
+    "payment": {
+      "method": "BANK_SLIP",
+      "installments": 1
+    },
+    "shipping_address": {
+      "city": "São Paulo",
+      "state": "SP"
+    },
+    "updated_at": "04/11/2026 12:47"
+  },
+  {
+    "order_id": "O0042",
+    "customer_id": "C002",
+    "order_date": "2026/04/12",
+    "status": "delivered",
+    "channel": "web",
+    "shipping_fee": "$0.00",
+    "coupon": "WELCOME5",
+    "total_amount": "1,519.11",
+    "payment": {
+      "method": "credit_card",
+      "installments": 6
+    },
+    "shipping_address": {
+      "city": "Rio de Janeiro",
+      "state": "RJ"
+    },
+    "updated_at": "04/12/2026 13:54"
+  },
+  {
+    "order_id": "O0043",
+    "customer_id": "C003",
+    "order_date": "2026-04-13",
+    "status": "DELIVERED",
+    "channel": "WEB",
+    "shipping_fee": 25.0,
+    "coupon": null,
+    "total_amount": "$1,202.12",
+    "payment": {
+      "method": "CREDIT_CARD",
+      "installments": 3
+    },
+    "shipping_address": {
+      "city": "Belo Horizonte",
+      "state": "MG"
+    },
+    "updated_at": "13/04/2026"
+  },
+  {
+    "order_id": "O0044",
+    "customer_id": "C004",
+    "order_date": "04/14/2026",
+    "status": "cancelled",
+    "channel": "mobile_app",
+    "shipping_fee": "$19.90",
+    "coupon": "WELCOME5",
+    "total_amount": 2677.9,
+    "payment": {
+      "method": "pix",
+      "installments": 4
+    },
+    "shipping_address": {
+      "city": "Curitiba",
+      "state": "pr"
+    },
+    "updated_at": "04/14/2026"
+  },
+  {
+    "order_id": "O0045",
+    "customer_id": "C005",
+    "order_date": "2026-04-15",
+    "status": "paid",
+    "channel": " mobile app ",
+    "shipping_fee": "R$ 25,00",
+    "coupon": "FREESHIP",
+    "total_amount": "$558.82",
+    "payment": {
+      "method": "PIX",
+      "installments": 4
+    },
+    "shipping_address": {
+      "city": "Porto Alegre",
+      "state": "RS"
+    },
+    "updated_at": "04/15/2026 16:15"
+  },
+  {
+    "order_id": "O0046",
+    "customer_id": "C006",
+    "order_date": "2026-04-16T15:22:00",
+    "status": "PAID",
+    "channel": "marketplace",
+    "shipping_fee": "19.90",
+    "coupon": "SPRING10",
+    "total_amount": "1258.65",
+    "payment": {
+      "method": "bank_slip",
+      "installments": 3
+    },
+    "shipping_address": {
+      "city": "Salvador",
+      "state": "BA"
+    },
+    "updated_at": "2026-04-16 17:22:00"
+  },
+  {
+    "order_id": "O0047",
+    "customer_id": "C007",
+    "order_date": "04/17/2026 16:29",
+    "status": "processing",
+    "channel": "MARKETPLACE",
+    "shipping_fee": "19.90",
+    "coupon": "SPRING10",
+    "total_amount": "5,099.70",
+    "payment": {
+      "method": "BANK_SLIP",
+      "installments": 1
+    },
+    "shipping_address": {
+      "city": "Recife",
+      "state": "PE"
+    },
+    "updated_at": "17/04/2026"
+  },
+  {
+    "order_id": "O0048",
+    "customer_id": "C008",
+    "order_date": "2026-04-18T09:36:00",
+    "status": "PROCESSING",
+    "channel": "web",
+    "shipping_fee": "$14.90",
+    "coupon": null,
+    "total_amount": "$522.01",
+    "payment": {
+      "method": "credit_card",
+      "installments": 1
+    },
+    "shipping_address": {
+      "city": "Fortaleza",
+      "state": "CE"
+    },
+    "updated_at": "2026-04-18"
+  },
+  {
+    "order_id": "O0049",
+    "customer_id": "C009",
+    "order_date": "2026-04-19",
+    "status": "shipped",
+    "channel": "WEB",
+    "shipping_fee": "$25.00",
+    "coupon": null,
+    "total_amount": "1469.63",
+    "payment": {
+      "method": "CREDIT_CARD",
+      "installments": 2
+    },
+    "shipping_address": {
+      "city": "Brasília",
+      "state": "DF"
+    },
+    "updated_at": "2026-04-19"
+  },
+  {
+    "order_id": "O0050",
+    "customer_id": "C010",
+    "order_date": "04/20/2026 11:50",
+    "status": "SHIPPED",
+    "channel": "mobile_app",
+    "shipping_fee": 19.9,
+    "coupon": null,
+    "total_amount": "1354,82",
+    "payment": {
+      "method": "pix",
+      "installments": 3
+    },
+    "shipping_address": {
+      "city": "Goiânia",
+      "state": "GO"
+    },
+    "updated_at": "20/04/2026"
+  }
+]
