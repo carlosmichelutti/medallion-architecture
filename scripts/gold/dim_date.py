@@ -9,6 +9,7 @@ GOLD_DIR = PROJECT_ROOT / 'data' / 'gold'
 
 COLUMNS = {
     'date_id': 'date_id',
+    'date': 'date',
     'year': 'year',
     'quarter': 'quarter',
     'month': 'month',
