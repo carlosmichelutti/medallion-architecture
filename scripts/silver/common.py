@@ -111,12 +111,18 @@ def normalize_percentage(value: Any) -> float | None:
         return None
 
     normalized = str(value).strip()
-    normalized = re.sub(r'[^\d+.]', '', normalized)
+    normalized = re.sub(r'[^\d+.,]', '', normalized)
 
     if not normalized:
         return None
 
-    normalized = float(normalized)
+    if ',' in normalized:
+        normalized = normalized.replace(',', '.')
+
+    try:
+        normalized = float(normalized)
+    except ValueError:
+        return None
 
     if 0 <= normalized <= 1:
         return normalized * 100
@@ -160,7 +166,10 @@ def parse_money(value: Any) -> Decimal | None:
             normalized = normalized.replace('.', '')
             normalized = normalized.replace(',', '.')
 
-    return Decimal(normalized)
+    try:
+        return Decimal(normalized)
+    except InvalidOperation:
+        return None
 
 def parse_integer(value: Any) -> int | None:
 
