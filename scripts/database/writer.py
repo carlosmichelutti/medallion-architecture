@@ -18,5 +18,5 @@ def write_dataframe_to_table(
         index=False
     )
 
-    print(f'DataFrame written {insert_rows} to table: {schema}.{table_name} (if_exists={if_exists})')
+    print(f'DataFrame written {insert_rows} row(s) to table: {schema}.{table_name} (if_exists={if_exists})')
     return insert_rows
