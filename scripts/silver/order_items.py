@@ -33,11 +33,11 @@ def transform_order_items(dataframe: pd.DataFrame) -> pd.DataFrame:
     dataframe_copy['gross_amount'] = (
         dataframe_copy['quantity'] * dataframe_copy['unit_price']
     ).astype('float64').round(2)
-    dataframe_copy['discount_amout'] = (
+    dataframe_copy['discount_amount'] = (
         (dataframe_copy['gross_amount'] / 100) * dataframe_copy['discount']
     ).astype('float64').round(2)
-    dataframe_copy['net_amout'] = (
-        dataframe_copy['gross_amount'] - dataframe_copy['discount_amout']
+    dataframe_copy['net_amount'] = (
+        dataframe_copy['gross_amount'] - dataframe_copy['discount_amount']
     ).astype('float64').round(2)
 
     return dataframe_copy
