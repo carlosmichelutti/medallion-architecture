@@ -8,7 +8,4 @@ engine = create_engine(url=settings.database.database_url, echo=False, future=Tr
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 
 def get_db_session():
-    with SessionLocal() as session:
-        return session
-
-engine = get_db_session().get_bind()
+    return SessionLocal()
