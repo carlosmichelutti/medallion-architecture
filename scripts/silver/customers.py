@@ -17,7 +17,7 @@ def validate_cpf(value: Any) -> str | None:
         return None
 
     normalized = str(value).strip()
-    normalized = re.sub(r'\D', '', value)
+    normalized = re.sub(r'\D', '', normalized)
 
     if len(normalized) != 11:
         return None
@@ -30,7 +30,7 @@ def validate_email(value) -> str | None:
         return None
 
     normalized = str(value).strip()
-    normalized = re.sub(r'\s', '', value)
+    normalized = re.sub(r'\s', '', normalized)
 
     if not re.match(r'[^@]+@[^@]+\.[^@]+', normalized):
         return None
@@ -43,10 +43,10 @@ def parse_telephone(value) -> str | None:
         return None
 
     normalized = str(value).strip()
-    normalized = re.sub(r'\D', '', value)
+    normalized = re.sub(r'\D', '', normalized)
     normalized = normalized.removeprefix('55')
 
-    if len(normalized) < 10 and len(normalized) > 11:
+    if len(normalized) not in [10, 11]:
         return None
 
     normalized = f'+55{normalized}'
