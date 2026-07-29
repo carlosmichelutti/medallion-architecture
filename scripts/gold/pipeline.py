@@ -17,13 +17,13 @@ TRANSFORMERS = {
     'fact_sales': save_fact_sales,
 }
 
-def process_dataset(dataset_name: str) -> None:
+def process_dataset(dataset_name: str) -> Path:
 
     transformer = TRANSFORMERS[dataset_name]
 
     output_path, transformed_dataframe = transformer()
 
-    print(f'[GOLD] {dataset_name}: {len(transformed_dataframe)} record(s) → {output_path}')
+    print(f'[GOLD] {dataset_name}: {len(transformed_dataframe)} record(s) -> {output_path}')
     return output_path
 
 def run_gold() -> list[Path]:
