@@ -30,7 +30,7 @@ def build_output_path(dataset_name: str) -> Path:
 
     return output_directory / 'data.parquet'
 
-def process_dataset(dataset_name: str) -> None:
+def process_dataset(dataset_name: str) -> Path:
 
     dataframe = pd.read_parquet(
         BRONZE_DIR /
@@ -49,7 +49,7 @@ def process_dataset(dataset_name: str) -> None:
         index=False
     )
 
-    print(f'[SILVER] {dataset_name}: {len(transformed_dataframe)} record(s) → {output_path}')
+    print(f'[SILVER] {dataset_name}: {len(transformed_dataframe)} record(s) -> {output_path}')
     return output_path
 
 def run_silver() -> list[Path]:
