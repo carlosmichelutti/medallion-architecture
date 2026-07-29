@@ -19,6 +19,7 @@ def read_excel_file(file_path: Path, **options: Any) -> pd.DataFrame:
     return pd.read_excel(
         file_path,
         dtype=object,
+        keep_default_na=False,
         **options
     )
 
