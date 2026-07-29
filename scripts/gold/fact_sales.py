@@ -8,20 +8,24 @@ SILVER_DIR = PROJECT_ROOT / 'data' / 'silver'
 GOLD_DIR = PROJECT_ROOT / 'data' / 'gold'
 
 COLUMNS = {
+    'date_id': 'date_id',
+    'order_item_id': 'order_item_id',
     'order_id': 'order_id',
     'customer_id': 'customer_id',
+    'product_id': 'product_id',
     'order_date': 'order_date',
     'status': 'status',
     'channel': 'channel',
     'shipping_fee': 'shipping_fee',
     'coupon': 'coupon',
     'total_amount': 'total_amount',
+    'gross_amount': 'gross_amount',
+    'discount_amount': 'discount_amount',
+    'net_amount': 'net_amount',
     'payment__method': 'payment_method',
-    'order_item_id': 'order_item_id',
-    'product_id': 'product_id',
     'quantity': 'quantity',
     'unit_price': 'unit_price',
-    'discount': 'discount_rate',
+    'discount': 'discount_percentage',
     'customer_key': 'customer_key',
     'product_key': 'product_key',
 }
