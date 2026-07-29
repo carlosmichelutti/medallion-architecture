@@ -1,6 +1,10 @@
+import re
+from typing import Any
+
 import pandas as pd
 
 from scripts.silver.common import (
+    is_null,
     normalize_identifier,
     normalize_text,
     parse_date,
@@ -8,6 +12,16 @@ from scripts.silver.common import (
     parse_money,
 )
 
+
+def parse_channel(value: Any) -> str | None:
+
+    if is_null(value):
+        return None
+
+    normalized = str(value).strip().upper()
+    normalized = re.sub(r'\s+', '_', normalized)
+
+    return normalized
 
 def transform_orders(dataframe: pd.DataFrame) -> pd.DataFrame:
 
@@ -26,7 +40,7 @@ def transform_orders(dataframe: pd.DataFrame) -> pd.DataFrame:
         normalize_text, case='upper'
     )
     dataframe_copy['channel'] = dataframe_copy['channel'].map(
-        normalize_text, case='upper'
+        parse_channel
     )
     dataframe_copy['shipping_fee'] = dataframe_copy['shipping_fee'].map(
         parse_money
