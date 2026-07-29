@@ -98,11 +98,9 @@ def build_output_path(dataset_name: str) -> Path:
 
     return output_directory / 'data.parquet'
 
-def ingest_source(config: SourceConfig) -> Path:
+def ingest_source(config: SourceConfig, batch_id: str) -> Path:
 
     ingestion_timestamp = datetime.now(timezone.utc)
-
-    batch_id = ingestion_timestamp.strftime('%Y%m%dT%H%M%S%fZ')
 
     dataframe = read_source(
         file_path=config.source_path,
@@ -128,16 +126,17 @@ def ingest_source(config: SourceConfig) -> Path:
         index=False
     )
 
-    print(f'[BRONZE] {config.file_name}: {len(dataframe)} record(s) → {output_path}')
+    print(f'[BRONZE] {config.file_name}: {len(dataframe)} record(s) -> {output_path}')
 
     return output_path
 
 def run_bronze() -> list[Path]:
 
     generated_files = []
+    batch_id = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
     for source_config in SOURCES:
         try:
-            output_path = ingest_source(source_config)
+            output_path = ingest_source(source_config, batch_id)
             generated_files.append(output_path)
         except (FileNotFoundError, OSError, ValueError) as error:
             print(f'[ERROR] Processing failed {source_config.file_name}: {error}')
