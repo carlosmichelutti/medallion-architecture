@@ -9,13 +9,13 @@ GOLD_DIR = PROJECT_ROOT / 'data' / 'gold'
 
 COLUMNS = {
     'customer_id': 'customer_id',
-	'name': 'customer_name',
-	'email': 'email',
-	'cpf': 'cpf',
-	'phone': 'phone',
-	'city': 'city',
-	'state': 'state',
-	'registration_date': 'registration_date',
+    'name': 'customer_name',
+    'email': 'email',
+    'cpf': 'cpf',
+    'phone': 'phone',
+    'city': 'city',
+    'state': 'state',
+    'registration_date': 'registration_date',
 }
 
 def build_dim_customers() -> pd.DataFrame:
