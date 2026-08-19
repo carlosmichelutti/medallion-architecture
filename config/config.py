@@ -4,7 +4,7 @@ from urllib.parse import quote_plus
 from pydantic import BaseModel, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-BASE_DIR = Path(__file__).resolve().parents[0]
+BASE_DIR = Path(__file__).resolve().parent
 
 class DatabaseSettings(BaseSettings):
 
