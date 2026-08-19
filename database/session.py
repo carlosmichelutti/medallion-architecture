@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from scripts.configuration.config import settings
+from config.config import settings
 
 engine = create_engine(url=settings.database.database_url, echo=False, future=True)
 

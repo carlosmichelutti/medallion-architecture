@@ -1,13 +1,13 @@
 import pandas as pd
 
-from scripts.database.session import engine
+from database.session import engine
 
 
 def write_dataframe_to_table(
     dataframe: pd.DataFrame,
     table_name: str,
     schema: str = 'public',
-    if_exists: str = 'replace',
+    if_exists: str = 'replace'
 ) -> int:
 
     insert_rows = dataframe.to_sql(
@@ -19,4 +19,5 @@ def write_dataframe_to_table(
     )
 
     print(f'DataFrame written {insert_rows} row(s) to table: {schema}.{table_name} (if_exists={if_exists})')
+
     return insert_rows
