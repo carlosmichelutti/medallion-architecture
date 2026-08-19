@@ -2,22 +2,22 @@ from pathlib import Path
 
 import pandas as pd
 
-from scripts.database.writer import write_dataframe_to_table
-from scripts.gold.metrics.gross_revenue import build_gross_revenue
-from scripts.gold.metrics.net_revenue import build_net_revenue
-from scripts.gold.metrics.net_revenue_by_channel import build_net_revenue_by_channel
-from scripts.gold.metrics.net_revenue_by_payment_method import (
+from database.writer import write_dataframe_to_table
+from src.metrics.gross_revenue import build_gross_revenue
+from src.metrics.net_revenue import build_net_revenue
+from src.metrics.net_revenue_by_channel import build_net_revenue_by_channel
+from src.metrics.net_revenue_by_payment_method import (
     build_net_revenue_by_payment_method,
 )
-from scripts.gold.metrics.orders_by_customer import build_orders_by_customer
-from scripts.gold.metrics.orders_by_date import build_orders_by_date
-from scripts.gold.metrics.orders_by_product import build_orders_by_product
+from src.metrics.orders_by_customer import build_orders_by_customer
+from src.metrics.orders_by_date import build_orders_by_date
+from src.metrics.orders_by_product import build_orders_by_product
 
-PROJECT_ROOT = Path(__file__).resolve().parents[3]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 GOLD_DIR = PROJECT_ROOT / 'data' / 'gold'
 
-def run_metrics():
+def run_metrics() -> None:
 
     fact_sales = pd.read_parquet(
         GOLD_DIR /
