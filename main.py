@@ -1,7 +1,7 @@
-from scripts.bronze.pipeline import run_bronze
-from scripts.gold.metrics.pipeline import run_metrics
-from scripts.gold.pipeline import run_gold
-from scripts.silver.pipeline import run_silver
+from src.bronze.pipeline import run_bronze
+from src.gold.pipeline import run_gold
+from src.metrics.pipeline import run_metrics
+from src.silver.pipeline import run_silver
 
 
 def main() -> None:
