@@ -6,8 +6,8 @@ from typing import Any
 
 import pandas as pd
 
-from scripts.bronze.config import SOURCES, SourceConfig
-from scripts.bronze.readers import read_source
+from src.bronze.config import SOURCES, SourceConfig
+from src.bronze.readers import read_source
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
@@ -96,9 +96,9 @@ def build_output_path(dataset_name: str) -> Path:
         exist_ok=True
     )
 
-    return output_directory / 'data.parquet'
+    return output_directory / f'{dataset_name}.parquet'
 
-def ingest_source(config: SourceConfig, batch_id: str) -> Path:
+def ingest_source(config: SourceConfig, batch_id: str) -> str:
 
     ingestion_timestamp = datetime.now(timezone.utc)
 
@@ -118,22 +118,24 @@ def ingest_source(config: SourceConfig, batch_id: str) -> Path:
         ingestion_timestamp=ingestion_timestamp
     )
 
-    output_path = build_output_path(dataset_name=config.dataset_name)
+    output_path = build_output_path(
+        dataset_name=config.dataset_name
+    )
 
     dataframe.to_parquet(
-        output_path,
+        path=output_path,
         engine='pyarrow',
         index=False
     )
 
     print(f'[BRONZE] {config.file_name}: {len(dataframe)} record(s) -> {output_path}')
 
-    return output_path
+    return output_path.as_posix()
 
-def run_bronze() -> list[Path]:
+def run_bronze(batch_id: str | None = None) -> list[str]:
 
     generated_files = []
-    batch_id = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
+    batch_id = batch_id or datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S')
     for source_config in SOURCES:
         try:
             output_path = ingest_source(source_config, batch_id)

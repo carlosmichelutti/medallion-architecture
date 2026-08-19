@@ -21,7 +21,7 @@ class SourceConfig:
 
 SOURCES = [
     SourceConfig(
-        source_path=RAW_DIR / 'customers.csv',
+        source_path=RAW_DIR / 'customers' / 'customers.csv',
         file_name='customers.csv',
         dataset_name='customers',
         reader_options={
@@ -30,7 +30,7 @@ SOURCES = [
         }
     ),
     SourceConfig(
-        source_path=RAW_DIR / 'products.xlsx',
+        source_path=RAW_DIR / 'products' / 'products.xlsx',
         file_name='products.xlsx',
         dataset_name='products',
         reader_options={
@@ -38,12 +38,12 @@ SOURCES = [
         }
     ),
     SourceConfig(
-        source_path=RAW_DIR / 'orders.json',
+        source_path=RAW_DIR / 'orders' / 'orders.json',
         file_name='orders.json',
         dataset_name='orders'
     ),
     SourceConfig(
-        source_path=RAW_DIR / 'order_items.csv',
+        source_path=RAW_DIR / 'order_items' / 'order_items.csv',
         file_name='order_items.csv',
         dataset_name='order_items',
         reader_options={
