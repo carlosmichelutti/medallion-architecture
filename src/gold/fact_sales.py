@@ -9,6 +9,8 @@ GOLD_DIR = PROJECT_ROOT / 'data' / 'gold'
 
 COLUMNS = {
     'date_id': 'date_id',
+    'customer_key': 'customer_key',
+    'product_key': 'product_key',
     'order_item_id': 'order_item_id',
     'order_id': 'order_id',
     'customer_id': 'customer_id',
@@ -25,9 +27,7 @@ COLUMNS = {
     'payment__method': 'payment_method',
     'quantity': 'quantity',
     'unit_price': 'unit_price',
-    'discount': 'discount_percentage',
-    'customer_key': 'customer_key',
-    'product_key': 'product_key',
+    'discount': 'discount_percentage'
 }
 
 def build_fact_sales() -> pd.DataFrame:
@@ -35,13 +35,13 @@ def build_fact_sales() -> pd.DataFrame:
     orders = pd.read_parquet(
         SILVER_DIR /
         'orders' /
-        'data.parquet'
+        'orders.parquet'
     )
 
     order_items = pd.read_parquet(
         SILVER_DIR /
         'order_items' /
-        'data.parquet'
+        'order_items.parquet'
     )
 
     dim_customers = pd.read_parquet(

@@ -1,9 +1,9 @@
 from pathlib import Path
 
-from scripts.gold.dim_customers import save_dim_customers
-from scripts.gold.dim_date import save_dim_date
-from scripts.gold.dim_products import save_dim_products
-from scripts.gold.fact_sales import save_fact_sales
+from src.gold.dim_customers import save_dim_customers
+from src.gold.dim_date import save_dim_date
+from src.gold.dim_products import save_dim_products
+from src.gold.fact_sales import save_fact_sales
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
@@ -17,16 +17,17 @@ TRANSFORMERS = {
     'fact_sales': save_fact_sales,
 }
 
-def process_dataset(dataset_name: str) -> Path:
+def process_dataset(dataset_name: str) -> str:
 
     transformer = TRANSFORMERS[dataset_name]
 
     output_path, transformed_dataframe = transformer()
 
     print(f'[GOLD] {dataset_name}: {len(transformed_dataframe)} record(s) -> {output_path}')
-    return output_path
 
-def run_gold() -> list[Path]:
+    return output_path.as_posix()
+
+def run_gold() -> list[str]:
 
     generated_files = []
     for dataset_name in TRANSFORMERS:

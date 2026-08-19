@@ -23,7 +23,7 @@ def build_dim_customers() -> pd.DataFrame:
     dataframe = pd.read_parquet(
         SILVER_DIR /
         'customers' /
-        'data.parquet'
+        'customers.parquet'
     )
 
     dim_customers = dataframe[COLUMNS.keys()]

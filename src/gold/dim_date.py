@@ -23,7 +23,7 @@ def build_dim_date() -> pd.DataFrame:
     dataframe = pd.read_parquet(
         SILVER_DIR /
         'orders' /
-        'data.parquet'
+        'orders.parquet'
     )
 
     start_date = dataframe['order_date'].min().date()

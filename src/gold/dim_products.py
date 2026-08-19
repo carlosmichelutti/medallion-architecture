@@ -23,7 +23,7 @@ def build_dim_products() -> pd.DataFrame:
     dataframe = pd.read_parquet(
         SILVER_DIR /
         'products' /
-        'data.parquet'
+        'products.parquet'
     )
 
     dim_products = dataframe[COLUMNS.keys()]
