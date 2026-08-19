@@ -2,10 +2,10 @@ from pathlib import Path
 
 import pandas as pd
 
-from scripts.silver.customers import transform_customers
-from scripts.silver.order_items import transform_order_items
-from scripts.silver.orders import transform_orders
-from scripts.silver.products import transform_products
+from src.silver.customers import transform_customers
+from src.silver.order_items import transform_order_items
+from src.silver.orders import transform_orders
+from src.silver.products import transform_products
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
@@ -28,31 +28,34 @@ def build_output_path(dataset_name: str) -> Path:
         exist_ok=True
     )
 
-    return output_directory / 'data.parquet'
+    return output_directory / f'{dataset_name}.parquet'
 
-def process_dataset(dataset_name: str) -> Path:
+def process_dataset(dataset_name: str) -> str:
 
     dataframe = pd.read_parquet(
         BRONZE_DIR /
         dataset_name /
-        'data.parquet'
+        f'{dataset_name}.parquet'
     )
 
     transformer = TRANSFORMERS[dataset_name]
 
     transformed_dataframe = transformer(dataframe)
 
-    output_path = build_output_path(dataset_name=dataset_name)
+    output_path = build_output_path(
+        dataset_name=dataset_name
+    )
 
     transformed_dataframe.to_parquet(
-        output_path,
+        path=output_path,
         index=False
     )
 
     print(f'[SILVER] {dataset_name}: {len(transformed_dataframe)} record(s) -> {output_path}')
-    return output_path
 
-def run_silver() -> list[Path]:
+    return output_path.as_posix()
+
+def run_silver() -> list[str]:
 
     generated_files = []
     for dataset_name in TRANSFORMERS:

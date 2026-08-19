@@ -3,7 +3,7 @@ from typing import Any
 
 import pandas as pd
 
-from scripts.silver.common import (
+from src.silver.common import (
     is_null,
     normalize_identifier,
     normalize_text,

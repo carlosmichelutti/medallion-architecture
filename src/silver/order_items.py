@@ -1,6 +1,6 @@
 import pandas as pd
 
-from scripts.silver.common import (
+from src.silver.common import (
     normalize_identifier,
     normalize_percentage,
     parse_integer,
