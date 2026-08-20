@@ -1,23 +1,30 @@
 # Medallion Architecture
 
-Projeto de estudo para praticar uma pipeline de dados baseada na arquitetura medalhão, passando por camadas de ingestão, limpeza, modelagem analítica e publicação de métricas em banco de dados.
+Projeto de estudo para praticar uma pipeline de dados baseada na arquitetura medalhão, passando por ingestão, limpeza, modelagem analítica, orquestração com Airflow e publicação de métricas em PostgreSQL.
 
-O objetivo principal e entender o papel de cada etapa em um fluxo de engenharia de dados:
+O fluxo principal do projeto é:
 
 ```text
 RAW -> BRONZE -> SILVER -> GOLD -> METRICS
 ```
 
-## Arquitetura Usada
+## Objetivo
 
-O projeto usa uma arquitetura medalhão com quatro momentos principais:
+O objetivo é simular um pipeline de engenharia de dados com fontes em formatos diferentes, dados brutos com inconsistências propositais e camadas progressivas de tratamento até a disponibilização de métricas agregadas para análise.
 
-- **RAW**: arquivos originais, mantidos como chegaram.
-- **BRONZE**: dados ingeridos em Parquet, com valores de negócio preservados como string e metadados de rastreabilidade.
-- **SILVER**: dados limpos, padronizados e tipados.
-- **GOLD**: modelo analítico com dimensões, fato de vendas e métricas.
+O projeto começou com execução local via `main.py` e foi evoluído para usar o Apache Airflow como orquestrador da pipeline.
 
-As métricas finais são publicadas em um banco de dados PostgreSQL usando `pandas.to_sql`.
+## Arquitetura
+
+O projeto usa a arquitetura medalhão:
+
+| Camada | Papel |
+| --- | --- |
+| `RAW` | Arquivos originais, mantidos como chegaram |
+| `BRONZE` | Ingestão dos dados em Parquet, preservando valores de negócio como string e adicionando metadados |
+| `SILVER` | Limpeza, padronização, validações simples e tipagem dos dados |
+| `GOLD` | Criação de dimensões, fato de vendas e base analítica |
+| `METRICS` | Cálculo e carga das métricas agregadas no PostgreSQL |
 
 ## Fontes Ingeridas
 
@@ -32,14 +39,14 @@ Os arquivos originais ficam em `data/raw`:
 
 ## Camada Bronze
 
-A camada Bronze lê os arquivos da RAW e grava os dados em `data/bronze`.
+A camada Bronze fica em `src/bronze` e grava os arquivos gerados em `data/bronze`.
 
-Tratamentos aplicados:
+Principais tratamentos:
 
-- leitura de CSV, Excel e JSON;
-- achatamento do JSON com campos aninhados usando separador `__`;
+- leitura de arquivos CSV, Excel e JSON;
+- normalização de JSON aninhado com separador `__`;
 - conversão das colunas de negócio para string;
-- inclusão de metadados:
+- inclusão de metadados de ingestão:
   - `_source_file`
   - `_source_extension`
   - `_source_path`
@@ -51,59 +58,113 @@ Tratamentos aplicados:
 
 ## Camada Silver
 
-A camada Silver lê os Parquets da Bronze e grava dados tratados em `data/silver`.
+A camada Silver fica em `src/silver` e grava os arquivos gerados em `data/silver`.
 
-Tratamentos aplicados:
+Principais tratamentos:
 
 - normalização de identificadores;
 - padronização de textos e categorias;
 - validação simples de e-mail, CPF e telefone;
 - conversão de datas;
-- conversão de valores monetarios;
+- conversão de valores monetários;
 - conversão de inteiros e booleanos;
 - normalização de percentuais;
 - padronização de canais, como `MOBILE APP` para `MOBILE_APP`;
-- calculo de colunas derivadas em `order_items`:
+- cálculo das colunas derivadas em `order_items`:
   - `gross_amount`
   - `discount_amount`
   - `net_amount`
 
 ## Camada Gold
 
-A camada Gold lê os dados da Silver e cria tabelas analíticas em `data/gold`.
+A camada Gold fica em `src/gold` e grava os arquivos gerados em `data/gold`.
 
 Tabelas criadas:
 
-| Tabela | Descricao |
+| Tabela | Descrição |
 | --- | --- |
 | `dim_customers` | Dimensão de clientes |
 | `dim_products` | Dimensão de produtos |
 | `dim_date` | Dimensão de datas |
 | `fact_sales` | Fato de vendas no nível de item do pedido |
 
-A granularidade da `fact_sales` e:
+A granularidade da `fact_sales` é:
 
 ```text
 1 linha = 1 item vendido dentro de um pedido
 ```
 
-Por isso, campos de cabecalho do pedido, como `total_amount` e `shipping_fee`, podem aparecer repetidos por item. Para analises de receita, use `gross_amount` e `net_amount`. Para contar pedidos, use contagem distinta de `order_id`.
+Por isso, campos de cabeçalho do pedido podem aparecer repetidos por item. Para análises de receita, use `gross_amount` e `net_amount`. Para contar pedidos, use contagem distinta de `order_id`.
 
-## métricas Disponibilizadas
+## Métricas Disponibilizadas
 
-As métricas ficam em `scripts/gold/metrics` e sao publicadas no banco de dados PostgreSQL.
+As métricas ficam em `src/metrics` e são publicadas no PostgreSQL.
 
-| Metrica | Descricao |
+| Métrica | Descrição |
 | --- | --- |
 | `gross_revenue` | Receita bruta total |
-| `net_revenue` | Receita liquida total |
-| `net_revenue_by_channel` | Receita liquida por canal |
-| `net_revenue_by_payment_method` | Receita liquida por metodo de pagamento |
+| `net_revenue` | Receita líquida total |
+| `net_revenue_by_channel` | Receita líquida por canal |
+| `net_revenue_by_payment_method` | Receita líquida por método de pagamento |
 | `orders_by_customer` | Quantidade de pedidos por cliente |
 | `orders_by_date` | Quantidade de pedidos por data |
 | `orders_by_product` | Quantidade de pedidos por produto |
 
-## Como Executar
+## Orquestração Com Airflow
+
+A DAG fica em `dags/dag_medallion_ecommerce_pipeline.py`.
+
+Ela orquestra as etapas nesta ordem:
+
+```text
+generate_batch_id -> bronze -> silver -> gold -> metrics
+```
+
+O `batch_id` é gerado pela própria DAG e enviado diretamente para a task da Bronze usando TaskFlow API.
+
+O ambiente Airflow é definido no `docker-compose.yaml` e possui:
+
+- Airflow API Server;
+- Scheduler;
+- DAG Processor;
+- Worker Celery;
+- Triggerer;
+- Redis;
+- PostgreSQL para metadados do Airflow;
+- PostgreSQL separado para as métricas do projeto.
+
+## Configuração De Ambiente
+
+O projeto possui dois exemplos de configuração:
+
+| Arquivo | Uso |
+| --- | --- |
+| `config/.env.example` | Execução dentro do Docker/Airflow |
+| `config/.env.local.example` | Execução local via `python main.py` |
+
+Dentro dos containers, o host do banco de métricas é `postgres`:
+
+```env
+DATABASE_HOST=postgres
+DATABASE_PORT=5432
+DATABASE_NAME=medallion-architecture
+DATABASE_USER=root
+DATABASE_PASSWORD=root
+```
+
+Na execução local pela máquina host, o banco é acessado via porta exposta `5433`:
+
+```env
+DATABASE_HOST=localhost
+DATABASE_PORT=5433
+DATABASE_NAME=medallion-architecture
+DATABASE_USER=root
+DATABASE_PASSWORD=root
+```
+
+Ao rodar `python main.py`, o projeto define automaticamente `MEDALLION_ENV_FILE=.env.local.example`, então a execução local usa as credenciais locais.
+
+## Como Executar Localmente
 
 Crie e ative um ambiente virtual:
 
@@ -118,39 +179,76 @@ Instale as dependências:
 pip install -r requirements.txt
 ```
 
-Crie o arquivo `scripts/configuration/.env` com as credenciais do banco, usando `scripts/configuration/.env.example` como referência:
+Suba pelo menos o banco PostgreSQL do projeto via Docker Compose:
 
-```env
-DATABASE_HOST=localhost
-DATABASE_PORT=5432
-DATABASE_NAME=medallion
-DATABASE_USER=postgres
-DATABASE_PASSWORD=your_password
+```powershell
+docker compose up postgres -d
 ```
 
-Execute a pipeline completa:
+Execute a pipeline completa localmente:
 
 ```powershell
 python main.py
 ```
 
+Esse comando executa Bronze, Silver, Gold e carrega as métricas no PostgreSQL usando `config/.env.local.example`.
+
+## Como Executar Com Airflow
+
+Crie o arquivo `config/.env` com base em `config/.env.example`.
+
+Depois suba os serviços:
+
+```powershell
+docker compose up -d
+```
+
+Acesse o Airflow em:
+
+```text
+http://localhost:8080
+```
+
+Usuário e senha padrão definidos no `docker-compose.yaml`:
+
+```text
+airflow / airflow
+```
+
+No Airflow, habilite e execute a DAG:
+
+```text
+dag_medallion_ecommerce_pipeline
+```
+
 ## Estrutura Principal
 
 ```text
+config/
+  config.py
+  .env.example
+  .env.local.example
+
+dags/
+  dag_medallion_ecommerce_pipeline.py
+
 data/
   raw/
   bronze/
   silver/
   gold/
 
-scripts/
+database/
+  session.py
+  writer.py
+
+src/
   bronze/
   silver/
   gold/
-    metrics/
-  configuration/
-  database/
+  metrics/
 
+docker-compose.yaml
 main.py
 requirements.txt
 ```
