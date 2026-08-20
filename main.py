@@ -1,3 +1,7 @@
+import os
+
+os.environ.setdefault('MEDALLION_ENV_FILE', '.env.local.example')
+
 from src.bronze.pipeline import run_bronze
 from src.gold.pipeline import run_gold
 from src.metrics.pipeline import run_metrics
