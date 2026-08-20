@@ -2,8 +2,7 @@ import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from airflow.decorators import dag, task
-from airflow.sdk import TaskInstance
+from airflow.sdk import dag, task
 from airflow.sdk.types import DagRunProtocol
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -24,18 +23,13 @@ sys.path.insert(0, PROJECT_ROOT.as_posix())
 )
 def dag_medallion_ecommerce_pipeline():
 
-    @task(task_id='generate_batch_id', do_xcom_push=True)
+    @task(task_id='generate_batch_id')
     def generate_batch_id(dag_run: DagRunProtocol) -> str:
         return dag_run.logical_date.strftime('%Y%m%d%H%M%S')
 
     @task(task_id='bronze')
-    def bronze(task_instance: TaskInstance) -> None:
+    def bronze(batch_id: str) -> None:
         from src.bronze.pipeline import run_bronze
-
-        batch_id = task_instance.xcom_pull(
-            task_ids='generate_batch_id',
-            key='return_value'
-        )
 
         bronze_files = run_bronze(batch_id=batch_id)
 
@@ -65,6 +59,12 @@ def dag_medallion_ecommerce_pipeline():
 
         print('Metrics layer completed.')
 
-    generate_batch_id() >> bronze() >> silver() >> gold() >> metrics()
+    batch_id = generate_batch_id()
+    bronze_task = bronze(batch_id)
+    silver_task = silver()
+    gold_task = gold()
+    metrics_task = metrics()
+
+    bronze_task >> silver_task >> gold_task >> metrics_task
 
 dag_medallion_ecommerce_pipeline()
